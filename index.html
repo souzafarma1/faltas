@@ -421,11 +421,22 @@
 
     function converterParaDecimal(valorString) {
         if (!valorString) return 0;
-        const limpo = valorString.toString()
+        
+        // Remove R$ e espaços
+        let limpo = valorString.toString()
             .replace('R$', '')
-            .replace(' ', '')
-            .replace(/\./g, '')  
-            .replace(',', '.'); 
+            .replace(/\s/g, '')  // Remove todos os espaços
+            .trim();
+        
+        // Verifica se tem vírgula (formato BR)
+        if (limpo.includes(',')) {
+            // Remove pontos que são separadores de milhares (ex: 1.000,50)
+            const semMilhar = limpo.replace(/\./g, '');
+            // Substitui vírgula decimal por ponto
+            return parseFloat(semMilhar.replace(',', '.')) || 0;
+        }
+        
+        // Se não tem vírgula, tenta parsear diretamente (já está em formato com ponto decimal)
         return parseFloat(limpo) || 0;
     }
 
@@ -475,12 +486,30 @@
             });
         });
 
-        // Configurar campos numéricos para formatar no blur (opcional)
+        // Configurar campos numéricos para formatar no blur
         document.getElementById('custo').addEventListener('blur', function() {
-            if(this.value) this.value = this.value.replace('.', ',');
+            if(this.value) {
+                // Converte o valor digitado para número
+                const valor = converterParaDecimal(this.value);
+                // Formata para exibição BR
+                this.value = formatarNumeroBR(valor);
+            }
         });
         document.getElementById('venda').addEventListener('blur', function() {
-            if(this.value) this.value = this.value.replace('.', ',');
+            if(this.value) {
+                // Converte o valor digitado para número
+                const valor = converterParaDecimal(this.value);
+                // Formata para exibição BR
+                this.value = formatarNumeroBR(valor);
+            }
+        });
+        
+        // Adiciona máscara de entrada para facilitar digitação
+        document.getElementById('custo').addEventListener('input', function(e) {
+            // Permite digitação livre, apenas valida depois
+        });
+        document.getElementById('venda').addEventListener('input', function(e) {
+            // Permite digitação livre, apenas valida depois
         });
     };
 
@@ -744,9 +773,12 @@
     }
     
     function limparCampos() { 
-        document.getElementById('desc').value=''; document.getElementById('qtd').value='1';
-        document.getElementById('custo').value=''; document.getElementById('venda').value=''; 
+        document.getElementById('desc').value=''; 
+        document.getElementById('qtd').value='1';
+        document.getElementById('custo').value=''; 
+        document.getElementById('venda').value=''; 
         document.getElementById('editId').value='';
+        document.getElementById('custo').focus();
     }
 
     function atualizarGraficos() {
