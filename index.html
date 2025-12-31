@@ -142,14 +142,14 @@
                 font-size: 10px !important;
                 line-height: 1 !important;
                 background: white !important;
-                color: #000000 !important; /* PRETO PURO PARA IMPRESSÃO FORTE */
-                font-weight: bold !important; /* TEXTO MAIS FORTE */
+                color: #000000 !important; 
+                font-weight: bold !important; 
             }
             
             body.thermal-mode-active * {
                 visibility: visible !important;
-                color: #000000 !important; /* FORÇAR PRETO EM TODOS OS ELEMENTOS */
-                font-family: "Arial Black", "Arial", sans-serif !important; /* FONTE MAIS FORTE */
+                color: #000000 !important; 
+                font-family: "Arial Black", "Arial", sans-serif !important; 
                 text-shadow: none !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
@@ -171,13 +171,13 @@
                 text-align: center;
                 padding-bottom: 1mm;
                 margin-bottom: 2mm;
-                border-bottom: 2px solid #000 !important; /* LINHA MAIS GROSSA */
+                border-bottom: 2px solid #000 !important; 
             }
             
             body.thermal-mode-active .logo-img {
                 max-width: 25mm !important;
                 margin: 0 auto 1mm !important;
-                filter: brightness(0) !important; /* LOGO EM PRETO PURO */
+                filter: brightness(0) !important; 
             }
             
             body.thermal-mode-active .nome-farmacia {
@@ -200,13 +200,13 @@
                 width: 100% !important;
                 font-size: 9px !important;
                 border-collapse: collapse;
-                border: 2px solid #000 !important; /* BORDA GROSSA */
+                border: 2px solid #000 !important; 
             }
             
             body.thermal-mode-active th,
             body.thermal-mode-active td {
                 padding: 1mm 0.5mm !important;
-                border: 1px solid #000 !important; /* BORDAS PRETAS */
+                border: 1px solid #000 !important; 
                 font-size: 9px !important;
                 line-height: 1 !important;
                 font-weight: bold !important;
@@ -215,8 +215,8 @@
             }
             
             body.thermal-mode-active th {
-                background: #000 !important; /* CABEÇALHO PRETO */
-                color: #fff !important; /* TEXTO BRANCO NO CABEÇALHO */
+                background: #000 !important; 
+                color: #fff !important; 
                 font-weight: 900 !important;
                 border: 1px solid #000 !important;
             }
@@ -226,7 +226,6 @@
                 border: 1px solid #000 !important;
             }
             
-            /* REMOVER ELEMENTOS NÃO NECESSÁRIOS */
             body.thermal-mode-active .no-print,
             body.thermal-mode-active .dashboard,
             body.thermal-mode-active .charts-row,
@@ -240,7 +239,6 @@
                 display: none !important;
             }
             
-            /* IMPRIMIR APENAS A TABELA DE FALTAS */
             body.thermal-mode-active #areaHistorico {
                 display: none !important;
             }
@@ -253,7 +251,6 @@
                 margin-top: 2mm !important;
             }
             
-            /* TEXTO DE RELATÓRIO */
             body.thermal-mode-active .relatorio-titulo {
                 text-align: center;
                 font-weight: 900;
@@ -268,7 +265,6 @@
             }
         }
         
-        /* Responsividade para impressão */
         @media screen and (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr !important;
@@ -288,10 +284,8 @@
 </head>
 <body>
 
-<!-- TELA DE LOGIN COM LOGO (CORRIGIDA) -->
 <div id="loginScreen">
     <div class="login-box">
-        <!-- LOGO MANTIDA NA TELA DE LOGIN -->
         <img src="Souza-Farma-logomarca.png" alt="Logo Souza Farma" class="logo-img" 
              onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBmaWxsPSIjZDMzZjJmIi8+Cjx0ZXh0IHg9Ijc1IiB5PSI3NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPlNGPC90ZXh0Pgo8L3N2Zz4='">
         <h1 style="color: var(--primary); margin: 10px 0; font-size: 24px;">SOUZA FARMA</h1>
@@ -328,7 +322,6 @@
             <button class="tab-btn" id="btnTabHist" onclick="switchTab('historico')">✅ Histórico Compras</button>
         </div>
 
-        <!-- NOVO: FILTROS DE DATA -->
         <div class="filtros-container no-print" id="filtrosContainer">
             <div class="filtros-titulo">
                 <span>🔍 FILTROS DE DATA</span>
@@ -338,22 +331,18 @@
                     <label class="filtro-label">Data Específica</label>
                     <input type="date" id="filtroDataUnica">
                 </div>
-                
                 <div class="filtro-group">
                     <label class="filtro-label">Período - De</label>
                     <input type="date" id="filtroDataInicio">
                 </div>
-                
                 <div class="filtro-group">
                     <label class="filtro-label">Período - Até</label>
                     <input type="date" id="filtroDataFim">
                 </div>
-                
                 <div style="display: flex; gap: 10px;">
                     <button class="btn-filtro" onclick="aplicarFiltroData()">APLICAR FILTRO</button>
                     <button class="btn-limpar" onclick="limparFiltroData()">LIMPAR</button>
                 </div>
-                
                 <div class="filtro-info" id="filtroInfo">
                     Mostrando todas as faltas. Use os filtros acima para buscar por data específica ou período.
                 </div>
@@ -363,23 +352,20 @@
         <div id="areaFaltas">
             <div class="form-container no-print">
                 <div class="form-grid">
-                    <input type="text" id="desc" placeholder="Medicamento" required>
-                    <input type="number" id="qtd" placeholder="Qtd" min="1" step="1" required>
-                    <input type="number" id="custo" placeholder="Custo" step="0.01" min="0">
-                    <input type="number" id="venda" placeholder="Venda" step="0.01" min="0">
-                    <select id="motivo">
+                    <input type="text" id="desc" placeholder="Medicamento" required tabindex="1">
+                    <input type="number" id="qtd" placeholder="Qtd" min="1" step="1" required tabindex="2">
+                    <input type="text" id="custo" placeholder="Custo" tabindex="3">
+                    <input type="text" id="venda" placeholder="Venda" tabindex="4">
+                    <select id="motivo" tabindex="5">
                         <option value="Estoque Zerado">Estoque Zerado</option>
                         <option value="Fornecedor Indisponível">Fornecedor Indisponível</option>
                         <option value="Produto Novo">Produto Novo</option>
                     </select>
-                    <input type="date" id="dataReg">
-                    <button id="btnAdd" class="btn-add" onclick="adicionarAoFirebase()">SALVAR</button>
+                    <input type="date" id="dataReg" tabindex="6">
+                    <button id="btnAdd" class="btn-add" onclick="adicionarAoFirebase()" tabindex="7">SALVAR</button>
                     <button id="btnUpdate" class="btn-update" onclick="salvarEdicaoFirebase()">ATUALIZAR</button>
                 </div>
                 <input type="hidden" id="editId">
-                <div style="text-align: center; margin-top: 10px; font-size: 12px; color: #666;">
-                    <small>Pressione ENTER no campo Medicamento para salvar rapidamente</small>
-                </div>
             </div>
             <table>
                 <thead><tr><th>Produto / Detalhes</th><th>Qtd</th><th>Custo/Venda</th><th>Lucro Total (%)</th><th>Venda Total</th><th class="no-print">Ações</th></tr></thead>
@@ -388,7 +374,6 @@
         </div>
 
         <div id="areaHistorico" style="display:none;">
-            <!-- Filtros para histórico (opcional, pode adicionar depois) -->
             <table>
                 <thead><tr><th>Produto</th><th>Data Falta</th><th>Data Compra</th><th>Preço Médio</th><th>Ações</th></tr></thead>
                 <tbody id="corpoHistorico"></tbody>
@@ -423,40 +408,27 @@
     let dadosFiltrados = [];
     let filtroAtivo = false;
 
-    // FUNÇÃO PARA FORMATAR NÚMEROS COM VÍRGULA (padrão BR)
     function formatarNumeroBR(valor, casasDecimais = 2) {
         if (valor === null || valor === undefined || isNaN(valor)) return '0,00';
-        
-        // Arredonda para o número de casas decimais especificado
         const valorArredondado = Number(valor).toFixed(casasDecimais);
-        
-        // Substitui ponto por vírgula
         return valorArredondado.replace('.', ',');
     }
 
-    // FUNÇÃO PARA FORMATAR MOEDA BRASILEIRA
     function formatarMoedaBR(valor) {
         if (valor === null || valor === undefined || isNaN(valor)) return 'R$ 0,00';
-        
-        // Formata como moeda brasileira
         return 'R$ ' + formatarNumeroBR(valor, 2);
     }
 
-    // FUNÇÃO PARA CONVERTER VÍRGULA PARA PONTO (para cálculos)
     function converterParaDecimal(valorString) {
         if (!valorString) return 0;
-        
-        // Remove R$, espaços e substitui vírgula por ponto
         const limpo = valorString.toString()
             .replace('R$', '')
             .replace(' ', '')
-            .replace('.', '')  // Remove pontos de milhar
-            .replace(',', '.'); // Substitui vírgula decimal por ponto
-        
+            .replace(/\./g, '')  
+            .replace(',', '.'); 
         return parseFloat(limpo) || 0;
     }
 
-    // FUNÇÃO PARA CONVERTER DATA BR PARA ISO (DD/MM/AAAA -> AAAA-MM-DD)
     function converterDataBRparaISO(dataBR) {
         if (!dataBR) return null;
         const partes = dataBR.split('/');
@@ -479,7 +451,6 @@
         const dataFormatada = hoje.toISOString().split('T')[0];
         document.getElementById('dataReg').value = dataFormatada;
         
-        // Preencher datas padrão nos filtros
         const primeiraDataMes = new Date(hoje.getFullYear(), hoje.getMonth(), 1);
         const primeiraDataFormatada = primeiraDataMes.toISOString().split('T')[0];
         
@@ -487,25 +458,29 @@
         document.getElementById('filtroDataInicio').value = primeiraDataFormatada;
         document.getElementById('filtroDataFim').value = dataFormatada;
         
-        document.getElementById('desc').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                adicionarAoFirebase();
-            }
+        // --- NOVO: LÓGICA DE NAVEGAÇÃO ENTER ---
+        const inputs = ['desc', 'qtd', 'custo', 'venda', 'motivo', 'dataReg', 'btnAdd'];
+        inputs.forEach((id, index) => {
+            const el = document.getElementById(id);
+            el.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (id === 'btnAdd') {
+                        adicionarAoFirebase();
+                    } else {
+                        const proximo = inputs[index + 1];
+                        document.getElementById(proximo).focus();
+                    }
+                }
+            });
         });
 
-        // Configurar campos numéricos para aceitar vírgula
+        // Configurar campos numéricos para formatar no blur (opcional)
         document.getElementById('custo').addEventListener('blur', function() {
-            const valor = this.value;
-            if (valor && valor.includes('.')) {
-                this.value = valor.replace('.', ',');
-            }
+            if(this.value) this.value = this.value.replace('.', ',');
         });
-
         document.getElementById('venda').addEventListener('blur', function() {
-            const valor = this.value;
-            if (valor && valor.includes('.')) {
-                this.value = valor.replace('.', ',');
-            }
+            if(this.value) this.value = this.value.replace('.', ',');
         });
     };
 
@@ -532,8 +507,6 @@
         document.getElementById('areaHistorico').style.display = t === 'historico' ? 'block' : 'none';
         document.getElementById('btnTabFaltas').classList.toggle('active', t === 'faltas');
         document.getElementById('btnTabHist').classList.toggle('active', t === 'historico');
-        
-        // Mostrar/ocultar filtros conforme a aba
         if (t === 'faltas') {
             document.getElementById('filtrosContainer').style.display = 'block';
         } else {
@@ -553,7 +526,6 @@
             atualizarGraficos();
         }, error => {
             console.error("Erro ao carregar dados:", error);
-            alert("Erro ao carregar dados. Verifique sua conexão.");
         });
     }
 
@@ -564,10 +536,8 @@
         corpoH.innerHTML = '';
         let tV = 0, tL = 0;
 
-        // Usar dados filtrados se houver filtro ativo, senão usar todos os dados
         const dadosParaRenderizar = filtroAtivo ? dadosFiltrados : dados.filter(item => !item.comprado);
         
-        // Ordenar por data (mais recente primeiro)
         const dadosOrdenados = [...dadosParaRenderizar].sort((a, b) => {
             if (!a.rawDate || !b.rawDate) return 0;
             return new Date(b.rawDate) - new Date(a.rawDate);
@@ -576,9 +546,11 @@
         dadosOrdenados.forEach(i => {
             if (!i.desc) return;
             
-            const lucroT = (i.venda - i.custo) * i.qtd;
-            const totalV = i.venda * i.qtd;
-            const margemUnit = i.venda > 0 ? ((i.venda - i.custo) / i.venda) * 100 : 0;
+            const custoNum = Number(i.custo) || 0;
+            const vendaNum = Number(i.venda) || 0;
+            const lucroT = (vendaNum - custoNum) * i.qtd;
+            const totalV = vendaNum * i.qtd;
+            const margemUnit = vendaNum > 0 ? ((vendaNum - custoNum) / vendaNum) * 100 : 0;
 
             if(!i.comprado) {
                 tV += totalV; 
@@ -596,7 +568,7 @@
                 corpo.innerHTML += `<tr class="${classeABC}">
                     <td><strong>${i.desc}</strong><br><small>${i.data || i.rawDate} | ${i.motivo || 'Não informado'}</small><br>${etiqueta}</td>
                     <td>${i.qtd}</td>
-                    <td>C: ${formatarMoedaBR(i.custo || 0)} / V: ${formatarMoedaBR(i.venda || 0)}</td>
+                    <td>C: ${formatarMoedaBR(custoNum)} / V: ${formatarMoedaBR(vendaNum)}</td>
                     <td>${formatarMoedaBR(lucroT)}<br><small>${formatarNumeroBR(margemUnit, 1)}%</small></td>
                     <td><strong>${formatarMoedaBR(totalV)}</strong></td>
                     <td class="no-print">
@@ -605,7 +577,6 @@
                         <button title="Remover" onclick="removerItem('${i.id}')" style="cursor:pointer; border:none; background:none; color:red; font-size:18px; margin-left:8px;">🗑</button>
                     </td></tr>`;
             } else {
-                // Para histórico (quando na aba de histórico)
                 const comprasAnteriores = dados.filter(x => x.desc === i.desc && x.comprado && x.id !== i.id);
                 let trend = "–";
                 if(comprasAnteriores.length > 0) {
@@ -621,12 +592,10 @@
             }
         });
         
-        // Atualizar dashboard
         document.getElementById('dashVenda').innerText = formatarMoedaBR(tV);
         document.getElementById('dashLucro').innerText = formatarMoedaBR(tL);
         document.getElementById('dashMargem').innerText = tV > 0 ? formatarNumeroBR((tL/tV)*100, 1) + "%" : "0%";
         
-        // Atualizar contador de itens
         const totalItens = dadosParaRenderizar.length;
         const infoFiltro = document.getElementById('filtroInfo');
         
@@ -637,448 +606,170 @@
         }
     }
 
-    // NOVA FUNÇÃO: APLICAR FILTRO POR DATA
     function aplicarFiltroData() {
         const dataUnica = document.getElementById('filtroDataUnica').value;
         const dataInicio = document.getElementById('filtroDataInicio').value;
         const dataFim = document.getElementById('filtroDataFim').value;
         
-        // Verificar qual tipo de filtro será aplicado
         if (dataUnica) {
-            // Filtro por data única
             const dataFormatadaBR = dataUnica.split('-').reverse().join('/');
             dadosFiltrados = dados.filter(item => {
-                // Verificar se a data do item corresponde à data do filtro
                 return (item.data === dataFormatadaBR || item.rawDate === dataUnica) && !item.comprado;
             });
-            
             if (dadosFiltrados.length === 0) {
                 alert(`Nenhuma falta encontrada para a data ${dataFormatadaBR}`);
                 return;
             }
-            
             filtroAtivo = true;
-            document.getElementById('filtroInfo').innerHTML = `<strong>Filtro:</strong> Mostrando faltas da data ${dataFormatadaBR} (${dadosFiltrados.length} item(s))`;
-            
         } else if (dataInicio && dataFim) {
-            // Filtro por período
             const inicio = new Date(dataInicio);
             const fim = new Date(dataFim);
-            
             if (inicio > fim) {
                 alert("A data inicial não pode ser maior que a data final!");
                 return;
             }
-            
             dadosFiltrados = dados.filter(item => {
                 if (item.comprado) return false;
-                
-                // Tentar usar rawDate (formato ISO) primeiro, depois data (formato BR)
-                let dataItem = null;
-                if (item.rawDate) {
-                    dataItem = new Date(item.rawDate);
-                } else if (item.data) {
-                    // Converter data BR para ISO
-                    const dataISO = converterDataBRparaISO(item.data);
-                    if (dataISO) {
-                        dataItem = new Date(dataISO);
-                    }
-                }
-                
-                if (!dataItem) return false;
-                
-                // Verificar se a data está dentro do período
-                return dataItem >= inicio && dataItem <= fim;
+                let dataItem = item.rawDate ? new Date(item.rawDate) : (item.data ? new Date(converterDataBRparaISO(item.data)) : null);
+                return dataItem && dataItem >= inicio && dataItem <= fim;
             });
-            
             if (dadosFiltrados.length === 0) {
-                const inicioBR = dataInicio.split('-').reverse().join('/');
-                const fimBR = dataFim.split('-').reverse().join('/');
-                alert(`Nenhuma falta encontrada para o período de ${inicioBR} a ${fimBR}`);
+                alert(`Nenhuma falta encontrada no período.`);
                 return;
             }
-            
             filtroAtivo = true;
-            const inicioBR = dataInicio.split('-').reverse().join('/');
-            const fimBR = dataFim.split('-').reverse().join('/');
-            document.getElementById('filtroInfo').innerHTML = `<strong>Filtro:</strong> Mostrando faltas de ${inicioBR} a ${fimBR} (${dadosFiltrados.length} item(s))`;
-            
         } else {
-            alert("Selecione uma data específica OU um período (data inicial e final) para filtrar.");
+            alert("Selecione uma data ou período.");
             return;
         }
-        
-        // Renderizar os dados filtrados
         renderizar();
         atualizarGraficosFiltrados();
     }
 
-    // NOVA FUNÇÃO: LIMPAR FILTRO
     function limparFiltroData() {
         filtroAtivo = false;
         dadosFiltrados = [];
-        
-        // Resetar campos de filtro para valores padrão
         const hoje = new Date();
-        const dataFormatada = hoje.toISOString().split('T')[0];
-        const primeiraDataMes = new Date(hoje.getFullYear(), hoje.getMonth(), 1);
-        const primeiraDataFormatada = primeiraDataMes.toISOString().split('T')[0];
-        
-        document.getElementById('filtroDataUnica').value = dataFormatada;
-        document.getElementById('filtroDataInicio').value = primeiraDataFormatada;
-        document.getElementById('filtroDataFim').value = dataFormatada;
-        
-        // Renderizar todos os dados novamente
+        document.getElementById('filtroDataUnica').value = hoje.toISOString().split('T')[0];
         renderizar();
         atualizarGraficos();
     }
 
-    // NOVA FUNÇÃO: ATUALIZAR GRÁFICOS COM DADOS FILTRADOS
     function atualizarGraficosFiltrados() {
         const dias = {};
         dadosFiltrados.forEach(i => {
-            if (i.data) {
-                dias[i.data] = (dias[i.data] || 0) + ((i.venda || 0) * (i.qtd || 0));
-            }
+            if (i.data) dias[i.data] = (dias[i.data] || 0) + ((Number(i.venda) || 0) * (i.qtd || 0));
         });
-        
         const labels = Object.keys(dias).sort();
         if(barChart) barChart.destroy();
-        
         if (labels.length > 0) {
             barChart = new Chart(document.getElementById('graficoBarras'), {
                 type: 'bar', 
-                data: { 
-                    labels, 
-                    datasets: [{
-                        label: 'Perda Diária R$', 
-                        data: labels.map(l => dias[l]), 
-                        backgroundColor: '#d32f2f',
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `Perda: ${formatarMoedaBR(context.raw)}`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            ticks: {
-                                callback: function(value) {
-                                    return formatarMoedaBR(value);
-                                }
-                            }
-                        }
-                    }
-                }
+                data: { labels, datasets: [{label: 'Perda R$', data: labels.map(l => dias[l]), backgroundColor: '#d32f2f', borderRadius: 4}]},
+                options: { responsive: true, maintainAspectRatio: false }
             });
-        } else {
-            // Se não houver dados para o gráfico, mostrar mensagem
-            const ctx = document.getElementById('graficoBarras').getContext('2d');
-            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-            ctx.font = '14px Arial';
-            ctx.fillStyle = '#666';
-            ctx.textAlign = 'center';
-            ctx.fillText('Sem dados para o período filtrado', ctx.canvas.width / 2, ctx.canvas.height / 2);
-        }
-
-        const m = { 'Estoque Zerado': 0, 'Fornecedor Indisponível': 0, 'Produto Novo': 0 };
-        dadosFiltrados.forEach(i => {
-            const motivo = i.motivo || 'Estoque Zerado';
-            m[motivo] = (m[motivo] || 0) + 1;
-        });
-        
-        if(pieChart) pieChart.destroy();
-        
-        if (dadosFiltrados.length > 0) {
-            pieChart = new Chart(document.getElementById('graficoPizza'), {
-                type: 'pie', 
-                data: { 
-                    labels: Object.keys(m), 
-                    datasets: [{
-                        data: Object.values(m), 
-                        backgroundColor: ['#0277bd', '#fbc02d', '#2e7d32'],
-                        borderWidth: 1
-                    }]
-                },
-                options: { 
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { 
-                        legend: { 
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 11
-                                }
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.raw || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = Math.round((value / total) * 100);
-                                    return `${label}: ${value} (${percentage}%)`;
-                                }
-                            }
-                        }
-                    } 
-                }
-            });
-        } else {
-            // Se não houver dados para o gráfico, mostrar mensagem
-            const ctx = document.getElementById('graficoPizza').getContext('2d');
-            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-            ctx.font = '14px Arial';
-            ctx.fillStyle = '#666';
-            ctx.textAlign = 'center';
-            ctx.fillText('Sem dados para o período filtrado', ctx.canvas.width / 2, ctx.canvas.height / 2);
         }
     }
 
     function adicionarAoFirebase() {
         const d = document.getElementById('desc').value.trim().toUpperCase();
         const q = parseFloat(document.getElementById('qtd').value);
+        if(!d || !q) { alert("Preencha Medicamento e Qtd!"); return; }
         
-        if(!d || d.length < 2) {
-            alert("Preencha o nome do medicamento (mínimo 2 caracteres)!");
-            document.getElementById('desc').focus();
-            return;
-        }
-        
-        if(!q || q < 1) {
-            alert("Quantidade deve ser pelo menos 1!");
-            document.getElementById('qtd').focus();
-            return;
-        }
-        
-        // Usar a função de conversão para tratar vírgula
         const custo = converterParaDecimal(document.getElementById('custo').value);
         const venda = converterParaDecimal(document.getElementById('venda').value);
-        
-        if (venda > 0 && custo > venda) {
-            if (!confirm("Custo maior que venda! Deseja continuar?")) {
-                return;
-            }
-        }
         
         const dataValue = document.getElementById('dataReg').value;
         const dataFormatada = dataValue.split('-').reverse().join('/');
         
         db.ref('faltas').push({
-            desc: d, 
-            qtd: q, 
-            custo: custo,
-            venda: venda,
+            desc: d, qtd: q, custo: custo, venda: venda,
             motivo: document.getElementById('motivo').value,
-            rawDate: dataValue,
-            data: dataFormatada,
-            comprado: false,
+            rawDate: dataValue, data: dataFormatada, comprado: false,
             timestamp: firebase.database.ServerValue.TIMESTAMP
         }).then(() => {
             limparCampos();
             document.getElementById('desc').focus();
-        }).catch(error => {
-            console.error("Erro ao salvar:", error);
-            alert("Erro ao salvar. Tente novamente.");
         });
     }
 
     function editarItem(id) {
         const i = dados.find(x => x.id === id);
         if (!i) return;
-        
         document.getElementById('desc').value = i.desc;
         document.getElementById('qtd').value = i.qtd;
-        document.getElementById('custo').value = formatarNumeroBR(i.custo, 2);
-        document.getElementById('venda').value = formatarNumeroBR(i.venda, 2);
-        document.getElementById('dataReg').value = i.rawDate || new Date().toISOString().split('T')[0];
+        document.getElementById('custo').value = formatarNumeroBR(i.custo);
+        document.getElementById('venda').value = formatarNumeroBR(i.venda);
+        document.getElementById('dataReg').value = i.rawDate;
         document.getElementById('editId').value = id;
         document.getElementById('btnAdd').style.display = 'none';
         document.getElementById('btnUpdate').style.display = 'block';
-        document.getElementById('desc').focus();
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     function salvarEdicaoFirebase() {
         const id = document.getElementById('editId').value;
-        if (!id) return;
-        
-        const dt = document.getElementById('dataReg').value;
-        const dataFormatada = dt.split('-').reverse().join('/');
-        
-        // Converter valores com vírgula para decimal
         const custo = converterParaDecimal(document.getElementById('custo').value);
         const venda = converterParaDecimal(document.getElementById('venda').value);
+        const dt = document.getElementById('dataReg').value;
         
         db.ref('faltas/'+id).update({
             desc: document.getElementById('desc').value.trim().toUpperCase(),
             qtd: parseFloat(document.getElementById('qtd').value),
-            custo: custo,
-            venda: venda,
-            rawDate: dt, 
-            data: dataFormatada,
-            timestamp: firebase.database.ServerValue.TIMESTAMP
+            custo: custo, venda: venda, rawDate: dt, 
+            data: dt.split('-').reverse().join('/')
         }).then(() => {
             document.getElementById('btnAdd').style.display = 'block';
             document.getElementById('btnUpdate').style.display = 'none';
             limparCampos();
-            document.getElementById('desc').focus();
-        }).catch(error => {
-            console.error("Erro ao atualizar:", error);
-            alert("Erro ao atualizar. Tente novamente.");
         });
     }
 
     function marcarComprado(id) { 
-        if (confirm("Marcar este item como comprado?")) {
-            const dataCompra = new Date().toLocaleDateString('pt-BR');
+        if (confirm("Marcar como comprado?")) {
             db.ref('faltas/'+id).update({
-                comprado: true, 
-                dataCompra: dataCompra,
-                compradoTimestamp: firebase.database.ServerValue.TIMESTAMP
+                comprado: true, dataCompra: new Date().toLocaleDateString('pt-BR')
             });
         }
     }
     
     function estornar(id) { 
-        if (confirm("Estornar compra e voltar para faltas?")) {
-            db.ref('faltas/'+id).update({
-                comprado: false, 
-                dataCompra: null,
-                compradoTimestamp: null
-            });
+        if (confirm("Estornar para faltas?")) {
+            db.ref('faltas/'+id).update({ comprado: false, dataCompra: null });
         }
     }
     
     function removerItem(id) { 
-        if(confirm("Apagar permanentemente este registro?")) {
-            db.ref('faltas/'+id).remove().catch(error => {
-                console.error("Erro ao remover:", error);
-                alert("Erro ao remover item.");
-            });
-        }
+        if(confirm("Excluir registro?")) db.ref('faltas/'+id).remove();
     }
     
     function limparCampos() { 
-        document.getElementById('desc').value=''; 
-        document.getElementById('qtd').value='1'; 
-        document.getElementById('custo').value=''; 
-        document.getElementById('venda').value=''; 
+        document.getElementById('desc').value=''; document.getElementById('qtd').value='1';
+        document.getElementById('custo').value=''; document.getElementById('venda').value=''; 
         document.getElementById('editId').value='';
-        document.getElementById('dataReg').value = new Date().toISOString().split('T')[0];
     }
 
     function atualizarGraficos() {
-        const dadosParaGraficos = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
-        
+        const dParaG = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
         const dias = {};
-        dadosParaGraficos.forEach(i => {
-            if (i.data) {
-                dias[i.data] = (dias[i.data] || 0) + ((i.venda || 0) * (i.qtd || 0));
-            }
+        dParaG.forEach(i => {
+            if (i.data) dias[i.data] = (dias[i.data] || 0) + ((Number(i.venda) || 0) * (i.qtd || 0));
         });
-        
         const labels = Object.keys(dias).sort().slice(-7);
         if(barChart) barChart.destroy();
-        
         if (labels.length > 0) {
             barChart = new Chart(document.getElementById('graficoBarras'), {
-                type: 'bar', 
-                data: { 
-                    labels, 
-                    datasets: [{
-                        label: 'Perda Diária R$', 
-                        data: labels.map(l => dias[l]), 
-                        backgroundColor: '#d32f2f',
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `Perda: ${formatarMoedaBR(context.raw)}`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            ticks: {
-                                callback: function(value) {
-                                    return formatarMoedaBR(value);
-                                }
-                            }
-                        }
-                    }
-                }
+                type: 'bar', data: { labels, datasets: [{label: 'Perda Diária R$', data: labels.map(l => dias[l]), backgroundColor: '#d32f2f'}]},
+                options: { responsive: true, maintainAspectRatio: false }
             });
         }
-
         const m = { 'Estoque Zerado': 0, 'Fornecedor Indisponível': 0, 'Produto Novo': 0 };
-        dadosParaGraficos.forEach(i => {
-            const motivo = i.motivo || 'Estoque Zerado';
-            m[motivo] = (m[motivo] || 0) + 1;
-        });
-        
+        dParaG.forEach(i => { m[i.motivo || 'Estoque Zerado']++; });
         if(pieChart) pieChart.destroy();
-        
-        if (dadosParaGraficos.length > 0) {
+        if (dParaG.length > 0) {
             pieChart = new Chart(document.getElementById('graficoPizza'), {
-                type: 'pie', 
-                data: { 
-                    labels: Object.keys(m), 
-                    datasets: [{
-                        data: Object.values(m), 
-                        backgroundColor: ['#0277bd', '#fbc02d', '#2e7d32'],
-                        borderWidth: 1
-                    }]
-                },
-                options: { 
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { 
-                        legend: { 
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 11
-                                }
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.raw || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = Math.round((value / total) * 100);
-                                    return `${label}: ${value} (${percentage}%)`;
-                                }
-                            }
-                        }
-                    } 
-                }
+                type: 'pie', data: { labels: Object.keys(m), datasets: [{data: Object.values(m), backgroundColor: ['#0277bd', '#fbc02d', '#2e7d32']}]},
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
             });
         }
     }
@@ -1086,142 +777,36 @@
     function gerarPDF() {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-        doc.setFontSize(20); 
-        doc.setTextColor(211, 47, 47);
-        doc.text("SOUZA FARMA - RELATÓRIO DE GESTÃO", 14, 20);
-        doc.setFontSize(10); 
-        doc.setTextColor(100);
-        doc.text("Cuidando da sua saúde, economia e preço baixo", 14, 28);
-        
-        // Usar dados filtrados se houver filtro ativo
-        const dadosParaPDF = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
-        
-        const rows = dadosParaPDF.map(i => [
-            i.data || i.rawDate, 
-            i.desc, 
-            i.qtd, 
-            i.motivo || 'Não informado', 
-            formatarMoedaBR((i.venda || 0) * (i.qtd || 0))
-        ]);
-        
-        doc.autoTable({ 
-            head: [['Data', 'Produto', 'Qtd', 'Motivo', 'Total']], 
-            body: rows, 
-            startY: 35, 
-            headStyles: {fillColor: [38, 50, 56]},
-            styles: {fontSize: 9}
-        });
-        
-        const totalPerda = dadosParaPDF
-            .reduce((sum, i) => sum + ((i.venda || 0) * (i.qtd || 0)), 0);
-        
-        doc.setFontSize(11);
-        doc.setTextColor(211, 47, 47);
-        doc.text(`TOTAL PERDAS: ${formatarMoedaBR(totalPerda)}`, 14, doc.lastAutoTable.finalY + 10);
-        
-        // Adicionar informação do filtro se aplicável
-        if (filtroAtivo) {
-            doc.setFontSize(9);
-            doc.setTextColor(100);
-            doc.text(`Relatório filtrado - ${document.getElementById('filtroInfo').textContent}`, 14, doc.lastAutoTable.finalY + 20);
-        }
-        
-        doc.save(`souza_farma_relatorio_${new Date().toISOString().slice(0,10)}.pdf`);
+        doc.text("SOUZA FARMA - RELATÓRIO", 14, 20);
+        const dPDF = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
+        const rows = dPDF.map(i => [i.data, i.desc, i.qtd, i.motivo, formatarMoedaBR(Number(i.venda)*i.qtd)]);
+        doc.autoTable({ head: [['Data', 'Produto', 'Qtd', 'Motivo', 'Total']], body: rows, startY: 30 });
+        doc.save(`souza_farma_${new Date().toISOString().slice(0,10)}.pdf`);
     }
 
     function exportarExcel() {
-        // Usar dados filtrados se houver filtro ativo
-        const dadosParaExcel = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
-        
-        let csv = '\uFEFFData;Produto;Qtd;Custo;Venda;Lucro;Status;Motivo\n';
-        dadosParaExcel.forEach(i => {
-            const lucro = (i.venda || 0) - (i.custo || 0);
-            csv += `${i.data || i.rawDate};${i.desc};${i.qtd};${formatarNumeroBR(i.custo || 0)};${formatarNumeroBR(i.venda || 0)};${formatarNumeroBR(lucro)};${i.comprado ? 'Comprado':'Falta'};${i.motivo || ''}\n`;
+        const dExcel = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
+        let csv = '\uFEFFData;Produto;Qtd;Custo;Venda;Total\n';
+        dExcel.forEach(i => {
+            csv += `${i.data};${i.desc};${i.qtd};${formatarNumeroBR(i.custo)};${formatarNumeroBR(i.venda)};${formatarNumeroBR(Number(i.venda)*i.qtd)}\n`;
         });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(new Blob([csv], {type:'text/csv;charset=utf-8'}));
-        link.download = `souza_farma_${new Date().toISOString().slice(0,10)}.csv`; 
-        link.click();
+        link.download = "relatorio_souza_farma.csv"; link.click();
     }
 
     function imprimirTermica() {
-        // Adicionar um título ao relatório antes de imprimir
-        const tabelaOriginal = document.getElementById('areaFaltas').innerHTML;
-        
-        // Adicionar informação do filtro se aplicável
-        let tituloRelatorio = '<div class="relatorio-titulo">RELATÓRIO DE FALTAS - SOUZA FARMA</div>';
-        if (filtroAtivo) {
-            const infoFiltro = document.getElementById('filtroInfo').textContent;
-            tituloRelatorio += `<div class="relatorio-titulo" style="font-size: 9px;">${infoFiltro}</div>`;
-        }
-        
-        document.getElementById('areaFaltas').innerHTML = tituloRelatorio + tabelaOriginal;
-        
-        // Adicionar classe especial para impressão térmica
         document.body.classList.add('thermal-mode-active');
-        
-        // Forçar estilos de impressão escuros
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @media print {
-                body.thermal-mode-active * {
-                    color: #000000 !important;
-                    -webkit-print-color-adjust: exact !important;
-                    print-color-adjust: exact !important;
-                }
-                table { border: 2px solid #000 !important; }
-                th, td { border: 1px solid #000 !important; }
-                th { background: #000 !important; color: #fff !important; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Esperar um momento para aplicar os estilos
-        setTimeout(() => {
-            window.print();
-            
-            // Remover a classe após a impressão e restaurar a tabela
-            setTimeout(() => {
-                document.body.classList.remove('thermal-mode-active');
-                document.getElementById('areaFaltas').innerHTML = tabelaOriginal;
-                document.head.removeChild(style);
-            }, 500);
-        }, 200);
+        setTimeout(() => { window.print(); setTimeout(() => document.body.classList.remove('thermal-mode-active'), 500); }, 200);
     }
     
     function enviarWhatsApp() {
-        // Usar dados filtrados se houver filtro ativo
         const faltas = filtroAtivo ? dadosFiltrados : dados.filter(i => !i.comprado);
-        
-        if (faltas.length === 0) {
-            alert("Não há itens em falta para enviar!");
-            return;
-        }
-        
+        if (faltas.length === 0) return alert("Sem faltas!");
         let m = "*SOUZA FARMA - RELATÓRIO DE FALTAS*%0A%0A";
-        m += `Data: ${new Date().toLocaleDateString('pt-BR')}%0A`;
-        m += `Total de itens: ${faltas.length}%0A`;
-        
-        // Adicionar informação do filtro se aplicável
-        if (filtroAtivo) {
-            const infoFiltro = document.getElementById('filtroInfo').textContent;
-            m += `Filtro: ${infoFiltro}%0A`;
-        }
-        
-        m += `%0A`;
-        
-        faltas.forEach(i => {
-            const total = (i.venda || 0) * (i.qtd || 0);
-            m += `• ${i.desc} (Qtd: ${i.qtd}) - ${formatarMoedaBR(total)}%0A`;
-        });
-        
-        const totalPerda = faltas.reduce((sum, i) => sum + ((i.venda || 0) * (i.qtd || 0)), 0);
-        m += `%0A*PERDA ESTIMADA: ${formatarMoedaBR(totalPerda)}*`;
-        m += `%0A%0A_Relatório gerado automaticamente pelo Sistema Souza Farma_`;
-        
+        faltas.forEach(i => { m += `• ${i.desc} (Qtd: ${i.qtd})%0A`; });
         window.open(`https://wa.me/5598986287296?text=${m}`);
     }
 </script>
 </body>
 </html>
-
